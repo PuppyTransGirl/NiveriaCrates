@@ -1,0 +1,12 @@
+name: NiveriaCrates
+version: '${version}'
+main: toutouchien.niveriacrates.NiveriaCrates
+api-version: '${minMinecraftVersion}'
+load: STARTUP
+authors: [ PuppyTransGirl ]
+
+dependencies:
+  server:
+    NiveriaAPI:
+      load: BEFORE
+      required: true

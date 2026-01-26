@@ -1,0 +1,32 @@
+# ============================================================
+# ===============  OTHER (PREFIXES, COLORS, ETC.) ============
+# ============================================================
+
+special-tags:
+  # ---------------- PREFIXES ----------------
+  prefix:
+    crates: "<gradient:#FF8C00:#FFD700>ᴄʀᴀᴛᴇꜱ</gradient>"
+
+  # ---------------- COLORS ----------------
+  ncolor:
+    primary: "#FF8C00"
+    secondary: "#FFD700"
+    success: "#7AF291"
+    error: "#F27474"
+    default: "#B0AEC1"
+
+  # ---------------- OTHER ----------------
+  other:
+    separator: "<#B0AEC1>»</#B0AEC1>"
+
+# ============================================================
+# ======================== FEATURES ==========================
+# ============================================================
+
+niveriacrates:
+  reload:
+    done: "<prefix:crates/> <separator> <ncolor:success>NiveriaCrates a été rechargé. (%s ms)</ncolor>"
+
+  new_update: |-
+    <prefix:crates/> <separator> <ncolor:default>Il y a une nouvelle version de <ncolor:primary>NiveriaCrates</ncolor>: <ncolor:error>%s</ncolor> → <ncolor:success>%s</ncolor></ncolor>
+    <ncolor:default>Lien de téléchargement: <ncolor:secondary><click:open_url:"https://modrinth.com/plugin/niveriacrates">https://modrinth.com/plugin/niveriacrates</click></ncolor></ncolor>
