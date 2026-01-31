@@ -24,6 +24,39 @@ special-tags:
 # ============================================================
 
 niveriacrates:
+  menu:
+    editor:
+      title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ɴɪᴠᴇʀɪᴀᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>"
+
+      crates_editor:
+        name: "<ncolor:primary>Crates</ncolor>"
+        lore: |-
+          <ncolor:default>»</ncolor> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ ᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>
+
+      keys_editor:
+        name: "<ncolor:primary>Keys</ncolor>"
+        lore: |-
+          <ncolor:default>»</ncolor> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ ᴋᴇʏѕ ᴇᴅɪᴛᴏʀ</ncolor>
+
+    crates_editor:
+      title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>"
+
+      back:
+        name: "<ncolor:primary>Back</ncolor>"
+        lore: |-
+          <ncolor:default>»</ncolor> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴍᴇɴᴜ</ncolor>
+
+      new:
+        name: "<ncolor:primary>New Crate</ncolor>"
+        lore: |-
+          <ncolor:default>»</ncolor> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ ᴄʀᴀᴛᴇ</ncolor>
+
+        title_sent:
+          title: "<ncolor:primary>Crate ID</ncolor>"
+          subtitle: "<ncolor:secondary>Enter the ID for the new crate</ncolor>"
+
+        invalid_id: "<prefix:crates/> <separator> <ncolor:error>The crate ID you entered is invalid.</ncolor>"
+
   reload:
     done: "<prefix:crates/> <separator> <ncolor:success>NiveriaCrates has been reloaded. (%s ms)</ncolor>"
 
