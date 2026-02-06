@@ -73,6 +73,8 @@ niveriacrates:
       rename:
         name: "<ncolor:primary>Rename Crate</ncolor>"
         lore: |-
+          <ncolor:secondary>ᴄᴜʀʀᴇɴᴛ ɴᴀᴍᴇ</ncolor> <white><niveriacrates_crate_name></white>
+          
           <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ʀᴇɴᴀᴍᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
 
         title_sent:

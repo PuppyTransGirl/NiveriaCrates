@@ -84,7 +84,9 @@ public class CrateEditorMenu extends Menu {
         return Button.create()
                 .item(ItemBuilder.of(Material.WRITABLE_BOOK)
                         .renamableName(LANG.get("niveriacrates.menu.edit_crate.rename.name"))
-                        .lore(LANG.getList("niveriacrates.menu.edit_crate.rename.lore"))
+                        .lore(LANG.getList("niveriacrates.menu.edit_crate.rename.lore",
+                                Lang.componentPlaceholder("niveriacrates_crate_name", crate.name())
+                        ))
                         .build()
                 )
                 .onClick(event -> {
@@ -108,7 +110,7 @@ public class CrateEditorMenu extends Menu {
                         event.context().previousMenu();
 
                         player.resetTitle();
-                        Task.sync(this::open, NiveriaCrates.instance());
+                        Task.sync(this::reopen, NiveriaCrates.instance());
                     });
                 })
                 .build();
