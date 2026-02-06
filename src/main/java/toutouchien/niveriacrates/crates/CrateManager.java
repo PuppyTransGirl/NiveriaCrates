@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 import toutouchien.niveriacrates.NiveriaCrates;
 
 @NullMarked
@@ -19,6 +20,15 @@ public class CrateManager {
 
     public void createCrate(Crate crate) {
         this.crates.put(crate.id(), crate);
+    }
+
+    public void deleteCrate(String crateID) {
+        this.crates.remove(crateID);
+    }
+
+    @Nullable
+    public Crate crate(String crateID) {
+        return this.crates.get(crateID);
     }
 
     public Object2ObjectMap<String, Crate> crates() {

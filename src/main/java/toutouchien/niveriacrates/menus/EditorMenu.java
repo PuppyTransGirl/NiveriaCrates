@@ -13,6 +13,7 @@ import toutouchien.niveriaapi.menu.component.MenuComponent;
 import toutouchien.niveriaapi.menu.component.interactive.Button;
 import toutouchien.niveriaapi.menu.component.layout.Grid;
 import toutouchien.niveriaapi.utils.ItemBuilder;
+import toutouchien.niveriacrates.crates.menus.CratesMenu;
 
 public class EditorMenu extends Menu {
     /**
@@ -51,12 +52,12 @@ public class EditorMenu extends Menu {
     protected @NotNull MenuComponent root(@NotNull MenuContext context) {
         Button cratesEditor = Button.create()
                 .item(ItemBuilder.of(Material.TRIAL_SPAWNER)
-                        .name(Lang.get("niveriacrates.menu.editor.crates_editor.name"))
-                        .lore(Lang.getList("niveriacrates.menu.editor.crates_editor.lore"))
+                        .name(Lang.get("niveriacrates.menu.editor.crates.name"))
+                        .lore(Lang.getList("niveriacrates.menu.editor.crates.lore"))
                         .hide(Registry.DATA_COMPONENT_TYPE.get(DataComponentTypeKeys.BLOCK_ENTITY_DATA))
                         .build()
                 )
-                .onClick(event -> new CratesEditorMenu(event.player(), event.context()).open())
+                .onClick(event -> new CratesMenu(event.player(), event.context()).open())
                 .build();
 
         Button keysEditor = Button.create()

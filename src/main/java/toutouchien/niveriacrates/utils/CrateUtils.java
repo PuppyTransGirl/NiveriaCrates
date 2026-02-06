@@ -8,16 +8,19 @@ public class CrateUtils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static boolean allowed(String s) {
+    public static boolean idAllowed(String s) {
+        if (s.length() > 20)
+            return false;
+
         for (char c : s.toCharArray()) {
-            if (!allowed(c))
+            if (!idAllowed(c))
                 return false;
         }
 
         return true;
     }
 
-    public static boolean allowed(char c) {
+    public static boolean idAllowed(char c) {
         return c >= '0' && c <= '9'
                 || c >= 'A' && c <= 'Z'
                 || c >= 'a' && c <= 'z'

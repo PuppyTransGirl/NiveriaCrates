@@ -1,4 +1,4 @@
-package toutouchien.niveriacrates.menus;
+package toutouchien.niveriacrates.crates.menus;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectCollection;
@@ -28,7 +28,17 @@ import toutouchien.niveriacrates.utils.CrateUtils;
 
 import java.util.concurrent.TimeUnit;
 
-public class CratesEditorMenu extends Menu {
+public class CratesMenu extends Menu {
+    /**
+     * Constructs a new Menu for the specified player.
+     *
+     * @param player the player who will interact with this menu
+     * @throws NullPointerException if player is null
+     */
+    public CratesMenu(@NotNull Player player) {
+        super(player);
+    }
+
     /**
      * Constructs a new Menu with the specified player and context.
      *
@@ -36,7 +46,7 @@ public class CratesEditorMenu extends Menu {
      * @param context the menu context for component interaction
      * @throws NullPointerException if player or context is null
      */
-    public CratesEditorMenu(@NotNull Player player, @NotNull MenuContext context) {
+    public CratesMenu(@NotNull Player player, @NotNull MenuContext context) {
         super(player, context);
     }
 
@@ -49,7 +59,7 @@ public class CratesEditorMenu extends Menu {
      */
     @Override
     protected @NotNull Component title() {
-        return Lang.get("niveriacrates.menu.crates_editor.title");
+        return Lang.get("niveriacrates.menu.crates.title");
     }
 
     /**
@@ -66,8 +76,8 @@ public class CratesEditorMenu extends Menu {
         CrateManager crateManager = NiveriaCrates.instance().crateManager();
         Button backButton = Button.create()
                 .item(ItemBuilder.of(Material.ARROW)
-                        .name(Lang.get("niveriacrates.menu.crates_editor.back.name"))
-                        .lore(Lang.getList("niveriacrates.menu.crates_editor.back.lore"))
+                        .name(Lang.get("niveriacrates.menu.crates.back.name"))
+                        .lore(Lang.getList("niveriacrates.menu.crates.back.lore"))
                         .build()
                 )
                 .onClick(event -> event.context().previousMenu().open())
@@ -75,15 +85,15 @@ public class CratesEditorMenu extends Menu {
 
         Button addButton = Button.create()
                 .item(ItemBuilder.of(Material.PLAYER_HEAD)
-                        .renamableName(Lang.get("niveriacrates.menu.crates_editor.new.name"))
-                        .lore(Lang.getList("niveriacrates.menu.crates_editor.new.lore"))
+                        .renamableName(Lang.get("niveriacrates.menu.crates.new.name"))
+                        .lore(Lang.getList("niveriacrates.menu.crates.new.lore"))
                         .headTexture("http://textures.minecraft.net/texture/5250b3cce76635ef4c7a88b2c597bd2749868d78f5afa566157c2612ae4120")
                         .build()
                 )
                 .onClick(event -> {
                     Title title = Title.title(
-                            Lang.get("niveriacrates.menu.crates_editor.new.title_sent.title"),
-                            Lang.get("niveriacrates.menu.crates_editor.new.title_sent.subtitle"),
+                            Lang.get("niveriacrates.menu.crates.new.title_sent.title"),
+                            Lang.get("niveriacrates.menu.crates.new.title_sent.subtitle"),
                             0,
                             (int) TimeUtils.ticks(1, TimeUnit.DAYS),
                             0
@@ -95,15 +105,16 @@ public class CratesEditorMenu extends Menu {
                     player.closeInventory();
 
                     NiveriaAPI.instance().chatInputManager().requestInput(player, s -> {
-                        boolean allowed = CrateUtils.allowed(s);
+                        boolean allowed = CrateUtils.idAllowed(s);
                         if (!allowed) {
-                            Lang.sendMessage(player, "niveriacrates.menu.crates_editor.new.invalid_id");
+                            Lang.sendMessage(player, "niveriacrates.menu.crates.new.invalid_id");
                             player.resetTitle();
                             return;
                         }
 
                         Crate newCrate = new Crate(s, Component.text(StringUtils.capitalize(s)), ItemStack.of(Material.CHEST));
                         crateManager.createCrate(newCrate);
+
                         player.resetTitle();
                         Task.sync(this::open, NiveriaCrates.instance());
                     });
@@ -115,6 +126,16 @@ public class CratesEditorMenu extends Menu {
         Paginator paginator = Paginator.create()
                 .size(7, 3)
                 .addAll(context, crates)
+                .backItem(ItemBuilder.of(Material.ARROW)
+                        .name(Lang.get("niveriacrates.menu.crates.previous_page.name"))
+                        .lore(Lang.getList("niveriacrates.menu.crates.previous_page.lore"))
+                        .build()
+                )
+                .nextItem(ItemBuilder.of(Material.ARROW)
+                        .name(Lang.get("niveriacrates.menu.crates.next_page.name"))
+                        .lore(Lang.getList("niveriacrates.menu.crates.next_page.lore"))
+                        .build()
+                )
                 .build();
 
         return Grid.create()
@@ -135,6 +156,12 @@ public class CratesEditorMenu extends Menu {
                             .name(crate.name())
                             .build()
                     )
+                    .onClick(event -> {
+                        MenuContext ctx = event.context();
+                        ctx.set("crate_id", crate.id());
+
+                        new CrateEditorMenu(event.player(), ctx).open();
+                    })
                     .build()
             );
         }
