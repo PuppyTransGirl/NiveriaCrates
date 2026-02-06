@@ -16,6 +16,8 @@ public class NiveriaCrates extends JavaPlugin {
     private static final int BSTATS_PLUGIN_ID = 29053;
     private static NiveriaCrates instance;
 
+    public static Lang LANG;
+
     private CrateManager crateManager;
 
     private Metrics bStats;
@@ -33,9 +35,11 @@ public class NiveriaCrates extends JavaPlugin {
             registrar.register(CratesCommand.get(), List.of("crate", "ncrates", "ncrate"));
         });
 
-        saveDefaultConfig();
+        LANG = Lang.builder(this)
+                .addDefaultLanguageFiles("en_US.yml", "fr_FR.yml")
+                .build();
 
-        Lang.load(this);
+        saveDefaultConfig();
 
         this.crateManager = new CrateManager(this);
 
@@ -52,7 +56,7 @@ public class NiveriaCrates extends JavaPlugin {
     }
 
     public void reload() {
-        Lang.reload(this);
+        LANG.reload();
     }
 
     public CrateManager crateManager() {

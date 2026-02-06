@@ -10,6 +10,8 @@ import toutouchien.niveriaapi.lang.Lang;
 import toutouchien.niveriaapi.utils.CommandUtils;
 import toutouchien.niveriacrates.NiveriaCrates;
 
+import static toutouchien.niveriacrates.NiveriaCrates.LANG;
+
 public class NiveriaCratesCommand {
     private NiveriaCratesCommand() {
         throw new IllegalStateException("Command class");
@@ -31,7 +33,9 @@ public class NiveriaCratesCommand {
                     long startMillis = System.currentTimeMillis();
                     NiveriaCrates.instance().reload();
                     long timeTaken = System.currentTimeMillis() - startMillis;
-                    Lang.sendMessage(sender, "niveriacrates.reload.done", timeTaken);
+                    LANG.sendMessage(sender, "niveriacrates.reload.done",
+                            Lang.numberPlaceholder("niveriacrates_time_ms", timeTaken)
+                    );
 
                     return Command.SINGLE_SUCCESS;
                 });

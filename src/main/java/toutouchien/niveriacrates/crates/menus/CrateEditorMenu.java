@@ -23,6 +23,8 @@ import toutouchien.niveriacrates.crates.CrateManager;
 
 import java.util.concurrent.TimeUnit;
 
+import static toutouchien.niveriacrates.NiveriaCrates.LANG;
+
 @NullMarked
 public class CrateEditorMenu extends Menu {
     /**
@@ -45,7 +47,9 @@ public class CrateEditorMenu extends Menu {
      */
     @Override
     protected Component title() {
-        return Lang.get("niveriacrates.menu.edit_crate.title", this.context.get("crate_id"));
+        return LANG.get("niveriacrates.menu.edit_crate.title",
+                Lang.unparsedPlaceholder("niveriacrates_crate_id", (String) this.context.get("crate_id"))
+        );
     }
 
     /**
@@ -79,14 +83,14 @@ public class CrateEditorMenu extends Menu {
     private Button renameButton(Crate crate) {
         return Button.create()
                 .item(ItemBuilder.of(Material.WRITABLE_BOOK)
-                        .renamableName(Lang.get("niveriacrates.menu.edit_crate.rename.name"))
-                        .lore(Lang.getList("niveriacrates.menu.edit_crate.rename.lore"))
+                        .renamableName(LANG.get("niveriacrates.menu.edit_crate.rename.name"))
+                        .lore(LANG.getList("niveriacrates.menu.edit_crate.rename.lore"))
                         .build()
                 )
                 .onClick(event -> {
                     Title title = Title.title(
-                            Lang.get("niveriacrates.menu.edit_crate.rename.title_sent.title"),
-                            Lang.get("niveriacrates.menu.edit_crate.rename.title_sent.subtitle"),
+                            LANG.get("niveriacrates.menu.edit_crate.rename.title_sent.title"),
+                            LANG.get("niveriacrates.menu.edit_crate.rename.title_sent.subtitle"),
                             0,
                             (int) TimeUtils.ticks(1, TimeUnit.DAYS),
                             0
@@ -113,13 +117,13 @@ public class CrateEditorMenu extends Menu {
     private static DoubleDropButton deleteButton() {
         return DoubleDropButton.create()
                 .item(ItemBuilder.of(Material.BARRIER)
-                        .name(Lang.get("niveriacrates.menu.edit_crate.delete.name"))
-                        .lore(Lang.getList("niveriacrates.menu.edit_crate.delete.lore"))
+                        .name(LANG.get("niveriacrates.menu.edit_crate.delete.name"))
+                        .lore(LANG.getList("niveriacrates.menu.edit_crate.delete.lore"))
                         .build()
                 )
                 .dropItem(ItemBuilder.of(Material.BARRIER)
-                        .name(Lang.get("niveriacrates.menu.edit_crate.delete_confirm.name"))
-                        .lore(Lang.getList("niveriacrates.menu.edit_crate.delete_confirm.lore"))
+                        .name(LANG.get("niveriacrates.menu.edit_crate.delete_confirm.name"))
+                        .lore(LANG.getList("niveriacrates.menu.edit_crate.delete_confirm.lore"))
                         .build()
                 )
                 .onDoubleDrop(event -> {
@@ -138,8 +142,8 @@ public class CrateEditorMenu extends Menu {
     private static Button backButton() {
         return Button.create()
                 .item(ItemBuilder.of(Material.ARROW)
-                        .name(Lang.get("niveriacrates.menu.edit_crate.back.name"))
-                        .lore(Lang.getList("niveriacrates.menu.edit_crate.back.lore"))
+                        .name(LANG.get("niveriacrates.menu.edit_crate.back.name"))
+                        .lore(LANG.getList("niveriacrates.menu.edit_crate.back.lore"))
                         .build()
                 )
                 .onClick(event -> event.context().previousMenu().open())

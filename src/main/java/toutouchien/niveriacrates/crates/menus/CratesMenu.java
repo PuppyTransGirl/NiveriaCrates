@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import toutouchien.niveriaapi.NiveriaAPI;
-import toutouchien.niveriaapi.lang.Lang;
 import toutouchien.niveriaapi.menu.Menu;
 import toutouchien.niveriaapi.menu.MenuContext;
 import toutouchien.niveriaapi.menu.component.MenuComponent;
@@ -27,6 +26,8 @@ import toutouchien.niveriacrates.crates.CrateManager;
 import toutouchien.niveriacrates.utils.CrateUtils;
 
 import java.util.concurrent.TimeUnit;
+
+import static toutouchien.niveriacrates.NiveriaCrates.LANG;
 
 public class CratesMenu extends Menu {
     /**
@@ -59,7 +60,7 @@ public class CratesMenu extends Menu {
      */
     @Override
     protected @NotNull Component title() {
-        return Lang.get("niveriacrates.menu.crates.title");
+        return LANG.get("niveriacrates.menu.crates.title");
     }
 
     /**
@@ -76,8 +77,8 @@ public class CratesMenu extends Menu {
         CrateManager crateManager = NiveriaCrates.instance().crateManager();
         Button backButton = Button.create()
                 .item(ItemBuilder.of(Material.ARROW)
-                        .name(Lang.get("niveriacrates.menu.crates.back.name"))
-                        .lore(Lang.getList("niveriacrates.menu.crates.back.lore"))
+                        .name(LANG.get("niveriacrates.menu.crates.back.name"))
+                        .lore(LANG.getList("niveriacrates.menu.crates.back.lore"))
                         .build()
                 )
                 .onClick(event -> event.context().previousMenu().open())
@@ -85,15 +86,15 @@ public class CratesMenu extends Menu {
 
         Button addButton = Button.create()
                 .item(ItemBuilder.of(Material.PLAYER_HEAD)
-                        .renamableName(Lang.get("niveriacrates.menu.crates.new.name"))
-                        .lore(Lang.getList("niveriacrates.menu.crates.new.lore"))
+                        .renamableName(LANG.get("niveriacrates.menu.crates.new.name"))
+                        .lore(LANG.getList("niveriacrates.menu.crates.new.lore"))
                         .headTexture("http://textures.minecraft.net/texture/5250b3cce76635ef4c7a88b2c597bd2749868d78f5afa566157c2612ae4120")
                         .build()
                 )
                 .onClick(event -> {
                     Title title = Title.title(
-                            Lang.get("niveriacrates.menu.crates.new.title_sent.title"),
-                            Lang.get("niveriacrates.menu.crates.new.title_sent.subtitle"),
+                            LANG.get("niveriacrates.menu.crates.new.title_sent.title"),
+                            LANG.get("niveriacrates.menu.crates.new.title_sent.subtitle"),
                             0,
                             (int) TimeUtils.ticks(1, TimeUnit.DAYS),
                             0
@@ -107,7 +108,7 @@ public class CratesMenu extends Menu {
                     NiveriaAPI.instance().chatInputManager().requestInput(player, s -> {
                         boolean allowed = CrateUtils.idAllowed(s);
                         if (!allowed) {
-                            Lang.sendMessage(player, "niveriacrates.menu.crates.new.invalid_id");
+                            LANG.sendMessage(player, "niveriacrates.menu.crates.new.invalid_id");
                             player.resetTitle();
                             return;
                         }
@@ -127,13 +128,13 @@ public class CratesMenu extends Menu {
                 .size(7, 3)
                 .addAll(context, crates)
                 .backItem(ItemBuilder.of(Material.ARROW)
-                        .name(Lang.get("niveriacrates.menu.crates.previous_page.name"))
-                        .lore(Lang.getList("niveriacrates.menu.crates.previous_page.lore"))
+                        .name(LANG.get("niveriacrates.menu.crates.previous_page.name"))
+                        .lore(LANG.getList("niveriacrates.menu.crates.previous_page.lore"))
                         .build()
                 )
                 .nextItem(ItemBuilder.of(Material.ARROW)
-                        .name(Lang.get("niveriacrates.menu.crates.next_page.name"))
-                        .lore(Lang.getList("niveriacrates.menu.crates.next_page.lore"))
+                        .name(LANG.get("niveriacrates.menu.crates.next_page.name"))
+                        .lore(LANG.getList("niveriacrates.menu.crates.next_page.lore"))
                         .build()
                 )
                 .build();
