@@ -3,7 +3,7 @@ package toutouchien.niveriacrates.utils;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
-public class CrateUtils {
+public final class CrateUtils {
     private CrateUtils() {
         throw new IllegalStateException("Utility class");
     }

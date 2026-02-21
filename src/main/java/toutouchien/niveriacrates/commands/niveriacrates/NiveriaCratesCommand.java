@@ -12,7 +12,7 @@ import toutouchien.niveriacrates.NiveriaCrates;
 
 import static toutouchien.niveriacrates.NiveriaCrates.LANG;
 
-public class NiveriaCratesCommand {
+public final class NiveriaCratesCommand {
     private NiveriaCratesCommand() {
         throw new IllegalStateException("Command class");
     }

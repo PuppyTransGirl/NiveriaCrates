@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import toutouchien.niveriaapi.utils.CommandUtils;
 import toutouchien.niveriacrates.menus.EditorMenu;
 
-public class CratesCommand {
+public final class CratesCommand {
     private CratesCommand() {
         throw new IllegalStateException("Command class");
     }
