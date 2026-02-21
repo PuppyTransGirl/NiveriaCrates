@@ -23,82 +23,85 @@ special-tags:
 # ======================== FEATURES ==========================
 # ============================================================
 
-niveriacrates:
-  menu:
-    editor:
-      title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ɴɪᴠᴇʀɪᴀᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>"
+command:
+  reload:
+    start: "<prefix:crates> <separator> <ncolor:default>Reloading NiveriaCrates...</ncolor>"
+    done: "<prefix:crates> <separator> <ncolor:success>NiveriaCrates has been reloaded. (<time_ms> ms)</ncolor>"
+    error: "<prefix:crates> <separator> <ncolor:error>An error occurred while reloading NiveriaCrates. Please check the console for more information.</ncolor>"
 
-      crates:
-        name: "<ncolor:primary>Crates</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ ᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>
-
-      keys_editor:
-        name: "<ncolor:primary>Keys</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ ᴋᴇʏѕ ᴇᴅɪᴛᴏʀ</ncolor>
+menu:
+  editor:
+    title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ɴɪᴠᴇʀɪᴀᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>"
 
     crates:
-      title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>"
+      name: "<ncolor:primary>Crates</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ ᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>
 
-      back:
-        name: "<ncolor:primary>Back</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴍᴇɴᴜ</ncolor>
+    keys_editor:
+      name: "<ncolor:primary>Keys</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ ᴋᴇʏѕ ᴇᴅɪᴛᴏʀ</ncolor>
 
-      new:
-        name: "<ncolor:primary>New Crate</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ ᴄʀᴀᴛᴇ</ncolor>
+  crates:
+    title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ᴄʀᴀᴛᴇѕ ᴇᴅɪᴛᴏʀ</ncolor>"
 
-        title_sent:
-          title: "<ncolor:primary>Crate ID</ncolor>"
-          subtitle: "<ncolor:secondary>Enter the ID for the new crate</ncolor>"
+    back:
+      name: "<ncolor:primary>Back</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴍᴇɴᴜ</ncolor>
 
-        invalid_id: "<prefix:crates/> <separator> <ncolor:error>The crate ID you entered is invalid.</ncolor>"
+    new:
+      name: "<ncolor:primary>New Crate</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ ᴄʀᴀᴛᴇ</ncolor>
 
-      previous_page:
-        name: "<ncolor:primary>Previous Page</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴘᴀɢᴇ</ncolor>
+      title_sent:
+        title: "<ncolor:primary>Crate ID</ncolor>"
+        subtitle: "<ncolor:secondary>Enter the ID for the new crate</ncolor>"
 
-      next_page:
-        name: "<ncolor:primary>Next Page</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ</ncolor>
+      invalid_id: "<prefix:crates> <separator> <ncolor:error>The crate ID you entered is invalid.</ncolor>"
 
-    edit_crate:
-      title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ᴇᴅɪᴛ ᴄʀᴀᴛᴇ: <ncolor:secondary><niveriacrates_crate_id></ncolor></ncolor>"
+    previous_page:
+      name: "<ncolor:primary>Previous Page</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴘᴀɢᴇ</ncolor>
 
-      rename:
-        name: "<ncolor:primary>Rename Crate</ncolor>"
-        lore: |-
-          <ncolor:secondary>ᴄᴜʀʀᴇɴᴛ ɴᴀᴍᴇ</ncolor> <white><niveriacrates_crate_name></white>
-          
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ʀᴇɴᴀᴍᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
+    next_page:
+      name: "<ncolor:primary>Next Page</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ</ncolor>
 
-        title_sent:
-          title: "<ncolor:primary>Crate Name</ncolor>"
-          subtitle: "<ncolor:secondary>Enter the name for the new crate</ncolor>"
+  edit_crate:
+    title: "<ncolor:primary><bold>ᴍᴇɴᴜ</bold> | ᴇᴅɪᴛ ᴄʀᴀᴛᴇ: <ncolor:secondary><crate_id></ncolor></ncolor>"
 
-      back:
-        name: "<ncolor:primary>Back</ncolor>"
-        lore: |-
-          <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴍᴇɴᴜ</ncolor>
+    rename:
+      name: "<ncolor:primary>Rename Crate</ncolor>"
+      lore: |-
+        <ncolor:secondary>ᴄᴜʀʀᴇɴᴛ ɴᴀᴍᴇ</ncolor> <white><crate_name></white>
+        
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ʀᴇɴᴀᴍᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
 
-      delete:
-        name: "<ncolor:error>Delete Crate</ncolor>"
-        lore: |-
-          <separator> <red><key:key.drop/></red> <ncolor:error>ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
+      title_sent:
+        title: "<ncolor:primary>Crate Name</ncolor>"
+        subtitle: "<ncolor:secondary>Enter the name for the new crate</ncolor>"
 
-      delete_confirm:
-        name: "<red>Are you sure to delete this crate ?</red>"
-        lore: |-
-          <separator> <red><key:key.drop/></red> <ncolor:error>ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛʟʏ ᴅᴇʟᴇᴛᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
+    back:
+      name: "<ncolor:primary>Back</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜѕ ᴍᴇɴᴜ</ncolor>
 
-  reload:
-    done: "<prefix:crates/> <separator> <ncolor:success>NiveriaCrates has been reloaded. (<niveriacrates_time_ms> ms)</ncolor>"
+    delete:
+      name: "<ncolor:error>Delete Crate</ncolor>"
+      lore: |-
+        <separator> <red><key:key.drop></red> <ncolor:error>ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
 
-  new_update: |-
-    <prefix:crates/> <separator> <ncolor:default>There is a new version of <ncolor:primary>NiveriaCrates</ncolor>: <ncolor:error><niveriacrates_current_version></ncolor> → <ncolor:success><niveriacrates_latest_version></ncolor></ncolor>
+    delete_confirm:
+      name: "<red>Are you sure to delete this crate ?</red>"
+      lore: |-
+        <separator> <red><key:key.drop></red> <ncolor:error>ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛʟʏ ᴅᴇʟᴇᴛᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
+
+update:
+  available: |-
+    <prefix:crates> <separator> <ncolor:default>There is a new version of <ncolor:primary>NiveriaCrates</ncolor>: <ncolor:error><current_version></ncolor> → <ncolor:success><latest_version></ncolor></ncolor>
     <ncolor:default>Download link: <ncolor:secondary><click:open_url:"https://modrinth.com/plugin/niveriacrates">https://modrinth.com/plugin/niveriacrates</click></ncolor></ncolor>

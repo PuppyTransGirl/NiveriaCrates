@@ -25,8 +25,10 @@ special-tags:
 
 niveriacrates:
   reload:
-    done: "<prefix:crates/> <separator> <ncolor:success>NiveriaCrates a été rechargé. (%s ms)</ncolor>"
+    start: "<prefix:crates> <separator> <ncolor:default>Rechargement de NiveriaCrates...</ncolor>"
+    done: "<prefix:crates> <separator> <ncolor:success>NiveriaCrates a été rechargé. (<time_ms> ms)</ncolor>"
+    error: "<prefix:crates> <separator> <ncolor:error>Une erreur s'est produite lors du rechargement de NiveriaCrates. Veuillez vérifier la console pour plus d'informations.</ncolor>"
 
   new_update: |-
-    <prefix:crates/> <separator> <ncolor:default>Il y a une nouvelle version de <ncolor:primary>NiveriaCrates</ncolor>: <ncolor:error>%s</ncolor> → <ncolor:success>%s</ncolor></ncolor>
+    <prefix:crates> <separator> <ncolor:default>Il y a une nouvelle version de <ncolor:primary>NiveriaCrates</ncolor>: <ncolor:error>%s</ncolor> → <ncolor:success>%s</ncolor></ncolor>
     <ncolor:default>Lien de téléchargement: <ncolor:secondary><click:open_url:"https://modrinth.com/plugin/niveriacrates">https://modrinth.com/plugin/niveriacrates</click></ncolor></ncolor>

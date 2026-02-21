@@ -60,7 +60,7 @@ public class CratesMenu extends Menu {
      */
     @Override
     protected @NotNull Component title() {
-        return LANG.get("niveriacrates.menu.crates.title");
+        return LANG.get("menu.crates.title");
     }
 
     /**
@@ -77,8 +77,8 @@ public class CratesMenu extends Menu {
         CrateManager crateManager = NiveriaCrates.instance().crateManager();
         Button backButton = Button.create()
                 .item(ItemBuilder.of(Material.ARROW)
-                        .name(LANG.get("niveriacrates.menu.crates.back.name"))
-                        .lore(LANG.getList("niveriacrates.menu.crates.back.lore"))
+                        .name(LANG.get("menu.crates.back.name"))
+                        .lore(LANG.getList("menu.crates.back.lore"))
                         .build()
                 )
                 .onClick(event -> event.context().previousMenu().open())
@@ -86,15 +86,15 @@ public class CratesMenu extends Menu {
 
         Button addButton = Button.create()
                 .item(ItemBuilder.of(Material.PLAYER_HEAD)
-                        .renamableName(LANG.get("niveriacrates.menu.crates.new.name"))
-                        .lore(LANG.getList("niveriacrates.menu.crates.new.lore"))
+                        .renamableName(LANG.get("menu.crates.new.name"))
+                        .lore(LANG.getList("menu.crates.new.lore"))
                         .headTexture("http://textures.minecraft.net/texture/5250b3cce76635ef4c7a88b2c597bd2749868d78f5afa566157c2612ae4120")
                         .build()
                 )
                 .onClick(event -> {
                     Title title = Title.title(
-                            LANG.get("niveriacrates.menu.crates.new.title_sent.title"),
-                            LANG.get("niveriacrates.menu.crates.new.title_sent.subtitle"),
+                            LANG.get("menu.crates.new.title_sent.title"),
+                            LANG.get("menu.crates.new.title_sent.subtitle"),
                             0,
                             (int) TimeUtils.ticks(1, TimeUnit.DAYS),
                             0
@@ -108,7 +108,7 @@ public class CratesMenu extends Menu {
                     NiveriaAPI.instance().chatInputManager().requestInput(player, s -> {
                         boolean allowed = CrateUtils.idAllowed(s);
                         if (!allowed) {
-                            LANG.sendMessage(player, "niveriacrates.menu.crates.new.invalid_id");
+                            LANG.sendMessage(player, "menu.crates.new.invalid_id");
                             player.resetTitle();
                             return;
                         }
@@ -117,7 +117,7 @@ public class CratesMenu extends Menu {
                         crateManager.createCrate(newCrate);
 
                         player.resetTitle();
-                        Task.sync(this::open, NiveriaCrates.instance());
+                        Task.sync(ignored -> this.open(), NiveriaCrates.instance());
                     });
                 })
                 .build();
@@ -126,26 +126,26 @@ public class CratesMenu extends Menu {
 
         Paginator paginator = Paginator.create()
                 .size(7, 3)
-                .addAll(context, crates)
+                .addAll(crates)
                 .backItem(ItemBuilder.of(Material.ARROW)
-                        .name(LANG.get("niveriacrates.menu.crates.previous_page.name"))
-                        .lore(LANG.getList("niveriacrates.menu.crates.previous_page.lore"))
+                        .name(LANG.get("menu.crates.previous_page.name"))
+                        .lore(LANG.getList("menu.crates.previous_page.lore"))
                         .build()
                 )
                 .nextItem(ItemBuilder.of(Material.ARROW)
-                        .name(LANG.get("niveriacrates.menu.crates.next_page.name"))
-                        .lore(LANG.getList("niveriacrates.menu.crates.next_page.lore"))
+                        .name(LANG.get("menu.crates.next_page.name"))
+                        .lore(LANG.getList("menu.crates.next_page.lore"))
                         .build()
                 )
                 .build();
 
         return Grid.create()
                 .size(9, 6)
-                .add(context, 10, paginator)
-                .add(context, 45, paginator.backButton())
-                .add(context, 49, backButton)
-                .add(context, 51, addButton)
-                .add(context, 53, paginator.nextButton())
+                .add(10, paginator)
+                .add(45, paginator.backButton())
+                .add(49, backButton)
+                .add(51, addButton)
+                .add(53, paginator.nextButton())
                 .build();
     }
 

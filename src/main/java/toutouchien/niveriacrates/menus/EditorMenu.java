@@ -36,7 +36,7 @@ public class EditorMenu extends Menu {
      */
     @Override
     protected @NotNull Component title() {
-        return LANG.get("niveriacrates.menu.editor.title");
+        return LANG.get("menu.editor.title");
     }
 
     /**
@@ -53,8 +53,8 @@ public class EditorMenu extends Menu {
     protected @NotNull MenuComponent root(@NotNull MenuContext context) {
         Button cratesEditor = Button.create()
                 .item(ItemBuilder.of(Material.TRIAL_SPAWNER)
-                        .name(LANG.get("niveriacrates.menu.editor.crates.name"))
-                        .lore(LANG.getList("niveriacrates.menu.editor.crates.lore"))
+                        .name(LANG.get("menu.editor.crates.name"))
+                        .lore(LANG.getList("menu.editor.crates.lore"))
                         .hide(Registry.DATA_COMPONENT_TYPE.get(DataComponentTypeKeys.BLOCK_ENTITY_DATA))
                         .build()
                 )
@@ -63,16 +63,16 @@ public class EditorMenu extends Menu {
 
         Button keysEditor = Button.create()
                 .item(ItemBuilder.of(Material.TRIAL_KEY)
-                        .name(LANG.get("niveriacrates.menu.editor.keys_editor.name"))
-                        .lore(LANG.getList("niveriacrates.menu.editor.keys_editor.lore"))
+                        .name(LANG.get("menu.editor.keys_editor.name"))
+                        .lore(LANG.getList("menu.editor.keys_editor.lore"))
                         .build()
                 )
                 .build();
 
         return Grid.create()
                 .size(9, 3)
-                .add(context, 11, cratesEditor)
-                .add(context, 15, keysEditor)
+                .add(11, cratesEditor)
+                .add(15, keysEditor)
                 .build();
     }
 }

@@ -45,7 +45,7 @@ public class NiveriaCrates extends JavaPlugin {
 
         this.bStats = new Metrics(this, BSTATS_PLUGIN_ID);
 
-        new UpdateChecker(this, "3cxoPKIB", "niveriacrates.new_update");
+        new UpdateChecker(this, "3cxoPKIB");
     }
 
     @Override

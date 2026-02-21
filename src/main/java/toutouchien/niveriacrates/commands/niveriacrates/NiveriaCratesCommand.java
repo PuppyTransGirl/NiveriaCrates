@@ -33,8 +33,8 @@ public class NiveriaCratesCommand {
                     long startMillis = System.currentTimeMillis();
                     NiveriaCrates.instance().reload();
                     long timeTaken = System.currentTimeMillis() - startMillis;
-                    LANG.sendMessage(sender, "niveriacrates.reload.done",
-                            Lang.numberPlaceholder("niveriacrates_time_ms", timeTaken)
+                    LANG.sendMessage(sender, "command.reload.done",
+                            Lang.numberPlaceholder("time_ms", timeTaken)
                     );
 
                     return Command.SINGLE_SUCCESS;

@@ -9,7 +9,7 @@ public class CrateUtils {
     }
 
     public static boolean idAllowed(String s) {
-        if (s.length() > 20)
+        if (s.length() > 32)
             return false;
 
         for (char c : s.toCharArray()) {
