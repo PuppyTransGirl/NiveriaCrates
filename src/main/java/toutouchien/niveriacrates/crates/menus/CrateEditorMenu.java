@@ -5,6 +5,7 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.title.Title;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.jspecify.annotations.NullMarked;
 import toutouchien.niveriaapi.NiveriaAPI;
 import toutouchien.niveriaapi.lang.Lang;
@@ -67,23 +68,19 @@ public class CrateEditorMenu extends Menu {
         String crateID = (String) context.get("crate_id");
         Crate crate = crateManager.crate(crateID);
 
-        DoubleDropButton deleteButton = deleteButton();
-        Button backButton = backButton();
-
-        Button renameButton = renameButton(crate);
-
         return Grid.create()
                 .size(9, 6)
-                .add(11, renameButton)
-                .add(49, backButton)
-                .add(53, deleteButton)
+                .add(11, renameButton(crate))
+                .add(12, iconButton(crate))
+                .add(49, backButton())
+                .add(53, deleteButton())
                 .build();
     }
 
     private Button renameButton(Crate crate) {
         return Button.create()
                 .item(ItemBuilder.of(Material.WRITABLE_BOOK)
-                        .renamableName(LANG.get("menu.edit_crate.rename.name"))
+                        .name(LANG.get("menu.edit_crate.rename.name"))
                         .lore(LANG.getList("menu.edit_crate.rename.lore",
                                 Lang.componentPlaceholder("crate_name", crate.name())
                         ))
@@ -114,6 +111,38 @@ public class CrateEditorMenu extends Menu {
                     });
                 })
                 .build();
+    }
+
+    private Button iconButton(Crate crate) {
+        Button button = Button.create()
+                .item(ItemBuilder.of(crate.icon())
+                        .renamableName(LANG.get("menu.edit_crate.icon.name")) // Can be a head so just in case
+                        .lore(LANG.getList("menu.edit_crate.icon.lore"))
+                        .build()
+                )
+                .build();
+
+        button.onClick(event -> {
+            ItemStack cursor = event.getCursor();
+            if (cursor.getType().isAir()) {
+                LANG.sendMessage(event.player(), "menu.edit_crate.icon.invalid_item");
+                return;
+            }
+
+            crate.icon(cursor.clone());
+
+            // If we use changeItem we need a 1 tick cooldown
+            // In the next version of NiveriaAPI I'll add a way of accessing the component with NiveriaInventoryClickEvent
+            // I'll probably deprecate changeItem to because like it's not really needed, I'll see for that
+            button.item(
+                    ItemBuilder.of(crate.icon())
+                            .renamableName(LANG.get("menu.edit_crate.icon.name")) // Can be a head so just in case
+                            .lore(LANG.getList("menu.edit_crate.icon.lore"))
+                            .build()
+            );
+        });
+
+        return button;
     }
 
     private static DoubleDropButton deleteButton() {

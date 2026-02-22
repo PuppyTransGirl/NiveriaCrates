@@ -79,12 +79,19 @@ menu:
       name: "<ncolor:primary>Rename Crate</ncolor>"
       lore: |-
         <ncolor:secondary>ᴄᴜʀʀᴇɴᴛ ɴᴀᴍᴇ</ncolor> <white><crate_name></white>
-        
+
         <separator> <ncolor:primary>ᴄʟɪᴄᴋ</ncolor> <ncolor:secondary>ᴛᴏ ʀᴇɴᴀᴍᴇ ᴛʜɪѕ ᴄʀᴀᴛᴇ</ncolor>
 
       title_sent:
         title: "<ncolor:primary>Crate Name</ncolor>"
         subtitle: "<ncolor:secondary>Enter the name for the new crate</ncolor>"
+
+    icon:
+      name: "<ncolor:primary>Change Icon</ncolor>"
+      lore: |-
+        <separator> <ncolor:primary>ᴅʀᴀɢ ᴀɴᴅ ᴅʀᴏᴘ</ncolor> <ncolor:secondary>ᴀɴ ɪᴛᴇᴍ ᴏɴ ᴛʜɪѕ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ ɪᴄᴏɴ</ncolor>
+
+      invalid_item: "<prefix:crates> <separator> <ncolor:error>The item you dropped is invalid.</ncolor>"
 
     back:
       name: "<ncolor:primary>Back</ncolor>"

@@ -25,7 +25,7 @@ public class Crate {
     }
 
     public ItemStack icon() {
-        return icon;
+        return icon.clone();
     }
 
     public void name(Component name) {

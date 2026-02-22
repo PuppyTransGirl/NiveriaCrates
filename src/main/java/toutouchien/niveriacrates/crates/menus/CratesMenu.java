@@ -154,7 +154,7 @@ public class CratesMenu extends Menu {
         for (Crate crate : crates) {
             crateButtons.add(Button.create()
                     .item(ItemBuilder.of(crate.icon())
-                            .name(crate.name())
+                            .renamableName(crate.name()) // Can be a head so just in case
                             .build()
                     )
                     .onClick(event -> {
